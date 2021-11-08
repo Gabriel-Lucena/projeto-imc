@@ -10,3 +10,11 @@ class DashBoardActivity : AppCompatActivity() {
         setContentView(R.layout.activity_dashboard)
     }
 }
+
+private fun carregarDash() {
+    val arquivo = getSharedPreferences("usuario", MODE_PRIVATE)
+
+    tvNome.text = arquivo.getString("nome", "")
+    tvProfissao.text = arquivo.getString("profissao", "")
+    tvAltura.text = arquivo.getFloat("altura", 0.0f).toString()
+}

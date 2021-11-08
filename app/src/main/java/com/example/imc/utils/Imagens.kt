@@ -1,6 +1,7 @@
 package com.example.imc.utils
 
 import android.graphics.Bitmap
+import android.graphics.BitmapFactory
 import android.util.Base64
 import java.io.ByteArrayOutputStream
 
@@ -16,4 +17,13 @@ fun convertBitmapToBase64(bitmap: Bitmap) : String {
             bitmapArray.toByteArray(),
             Base64.DEFAULT)
 
+}
+
+fun convertbase64ToBitmap(base64: String) : Bitmap {
+
+    /* Converter o base64 em bytes */
+
+    val imageBytes = Base64.decode(base64, Base64.DEFAULT)
+
+    return BitmapFactory.decodeByteArray(imageBytes, 0, imageBytes.size)
 }
