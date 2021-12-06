@@ -11,6 +11,9 @@ import com.example.imc.R
 import com.example.imc.utils.autenticar
 
 class LoginActivity : AppCompatActivity() {
+
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
@@ -18,18 +21,24 @@ class LoginActivity : AppCompatActivity() {
         supportActionBar!!.hide()
 
         val tvNovaConta = findViewById<TextView>(R.id.tv_nova_conta)
-        val buttonEntrar = findViewById<Button>(R.id.button_entrar)
+        val buttonEntar = findViewById<Button>(R.id.button_entrar)
+
         val editEmail = findViewById<EditText>(R.id.edit_login_email)
         val editSenha = findViewById<EditText>(R.id.edit_login_senha)
 
-        buttonEntrar.setOnClickListener {
-            val autenticou = autenticar(editEmail.text.toString(), editSenha.text.toString(), this)
+        buttonEntar.setOnClickListener {
+            val autenticou = autenticar(
+                    editEmail.text.toString(),
+                    editSenha.text.toString(),
+                    this)
 
             if (autenticou) {
-                val intent = Intent (this, DashBoardActivity::class.java)
-                Toast.makeText(this, "Usuário", Toast.LENGTH_SHORT).show()
+                val intent = Intent(
+                        this,
+                        DashBoardActivity::class.java)
+                startActivity(intent)
             } else {
-                Toast.makeText(this, "Usuário ou senha errados", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "Usuário ou senha incorretos!!", Toast.LENGTH_SHORT).show()
             }
 
         }

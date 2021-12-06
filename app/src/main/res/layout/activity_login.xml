@@ -111,7 +111,8 @@
                 android:drawableStart="@drawable/ic_baseline_lock_24"
                 android:drawablePadding="15dp"
                 android:maxLines="1"
-                android:padding="15dp"/>
+                android:padding="15dp"
+                android:inputType="numberPassword"/>
         </com.google.android.material.textfield.TextInputLayout>
 
         <Button

@@ -50,9 +50,16 @@ class NovoUsuarioActivity : AppCompatActivity() {
         tvTrocarFoto = findViewById(R.id.tv_trocar_foto)
         ivFotoPerfil = findViewById(R.id.iv_foto_perfil)
 
-        // Carregar bitmap padrão, caos o usuário não escolha uma foto.
-        // imageBitmap = resources.getDrawable(R.drawable.foto_perfil).toBitmap()
-        imageBitmap = BitmapFactory.decodeResource(resources, R.drawable.foto_perfil)
+        // Carregar bitmap padrão caso o usuário não escolha uma foto.
+        // Caso a imagem seja uma imagem png, jpeg, gif, etc.:
+//        imageBitmap = BitmapFactory.decodeResource(
+//                resources, R.drawable.person_24)
+
+        // Caso a imagem seja um vector asset:
+        imageBitmap =
+                resources
+                        .getDrawable(R.drawable.person_24)
+                        .toBitmap()
 
         supportActionBar!!.title = "Novo usuário"
 
